@@ -42,7 +42,7 @@ export default {
   data: function () {
       return {
         dropzoneOptionsPassport: {
-            url: 'http://localhost:8088/webapi/manual/passport',
+            url: 'http://kyc-server-dev.app3prj8ks.us-east-1.elasticbeanstalk.com:80/webapi/manual/passport',
             maxFilesize: 8,
             paramName: 'image',
             maxFiles: 1,
@@ -51,7 +51,7 @@ export default {
             acceptedFiles: 'image/*'
         },
         dropzoneOptionsFace: {
-            url: 'http://localhost:8088/webapi/manual/face',
+            url: 'http://kyc-server-dev.app3prj8ks.us-east-1.elasticbeanstalk.com:80/webapi/manual/face',
             maxFilesize: 8,
             paramName: 'image',
             maxFiles: 1,
