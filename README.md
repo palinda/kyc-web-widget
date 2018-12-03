@@ -1,5 +1,7 @@
 ## Usage
 
+1. Include `https://github.com/palinda/kyc-web-widget/blob/master/dist/kyc-widget.app.js`
+2. Define component as below. 
 ```
 <kyc-widget reference="12345678"> </kyc-widget>
 ```
