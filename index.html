@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>KYC Widget Demo</title>
+   
+	<style>
+		
+	</style>
+  </head>
+  <body>
+    <div style="height: 100%">
+      <kyc-widget reference="12345678" id="widget1" @closed="closeCB"> </kyc-widget>
+   </div>
+   
+  </body>
+  <script>
+      document.getElementsByTagName('kyc-widget')[0].addEventListener('closed', (event) => {
+        console.log('Closed: ' + event);
+      })
+      var closeCB = () => {
+        console.log('Closed');
+      }
+    </script>
+  <script src="./dist/kyc-widget.app.js" type="text/javascript"></script>
+</html>
