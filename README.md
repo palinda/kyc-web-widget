@@ -19,7 +19,7 @@
 ```
 <body>
     <div style="height: 100%">
-      <kyc-widget reference="12345678" id="widget1" @closed="closeCB"> </kyc-widget>
+      <kyc-widget reference="12345678"> </kyc-widget>
    </div>
    
   </body>
