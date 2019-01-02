@@ -1,13 +1,15 @@
 import axios from 'axios';
 import qs from 'query-string';
+import { Configs } from './configs'
 
-export const HTTP = axios.create({
-  baseURL: `http://kyc-server-dev.app3prj8ks.us-east-1.elasticbeanstalk.com:80/`,
+export const HTTP = (token) => axios.create({
+  baseURL: Configs.endpoint,
   headers: {
-    'content-type': 'application/x-www-form-urlencoded'
+    'content-type': 'application/x-www-form-urlencoded',
+    'Authorization': token,
   }
 })
 
-export const HttpPost = (path, body) => {
-    return HTTP.post(path, qs.stringify(body))
+export const HttpPost = (path, token, body) => {
+    return HTTP(token).post(path, qs.stringify(body))
 }

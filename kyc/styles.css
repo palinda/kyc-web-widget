@@ -1,0 +1,68 @@
+/*----styles----*/
+html, body {
+    font-family: Gibson;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #4D4D4F;
+    background-color: #666}
+    /* ========================================================================= */
+/* !FONTS (@fontface generated with FontSpring Syntax formatting */
+/* ========================================================================= */
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-Regular-webfont.eot"); src: url("../fonts/Gibson/Gibson-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-Regular-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-Regular-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-Regular-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-Regular-webfont.svg#gibsonregular") format("svg"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-Italic-webfont.eot"); src: url("../fonts/Gibson/Gibson-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-Italic-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-Italic-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-Italic-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-Italic-webfont.svg#gibsonitalic") format("svg"); font-weight: normal; font-style: italic; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-Light-webfont.eot"); src: url("../fonts/Gibson/Gibson-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-Light-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-Light-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-Light-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-Light-webfont.svg#gibsonlight") format("svg"); font-weight: 300; font-style: normal; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-LightItalic-webfont.eot"); src: url("../fonts/Gibson/Gibson-LightItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-LightItalic-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-LightItalic-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-LightItalic-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-LightItalic-webfont.svg#gibsonlight_italic") format("svg"); font-weight: 300; font-style: italic; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-SemiBold-webfont.eot"); src: url("../fonts/Gibson/Gibson-SemiBold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-SemiBold-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-SemiBold-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-SemiBold-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-SemiBold-webfont.svg#gibsonsemibold") format("svg"); font-weight: 600; font-style: normal; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.eot"); src: url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-SemiBoldItalic-webfont.svg#gibsonsemibold_italic") format("svg"); font-weight: 600; font-style: italic; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-Bold-webfont.eot"); src: url("../fonts/Gibson/Gibson-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-Bold-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-Bold-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-Bold-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-Bold-webfont.svg#gibsonbold") format("svg"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: 'Gibson'; src: url("../fonts/Gibson/Gibson-BoldItalic-webfont.eot"); src: url("../fonts/Gibson/Gibson-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Gibson/Gibson-BoldItalic-webfont.woff2") format("woff2"), url("../fonts/Gibson/Gibson-BoldItalic-webfont.woff") format("woff"), url("../fonts/Gibson/Gibson-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/Gibson/Gibson-BoldItalic-webfont.svg#gibsonbold_italic") format("svg"); font-weight: 700; font-style: italic; }
+
+
+
+@media (max-width:767px) { 
+    .page-container{width:80%; padding: 10%;}
+}
+
+
+@media (min-width: 768px) {
+    .page-container{width: 400px; padding: 40px;}
+}
+
+
+@media (min-width: 992px) {
+    .page-container{width: 500px; padding: 50px;}
+}
+
+
+@media (min-width: 1200px) { 
+    .page-container{width: 600px; padding: 60px;}
+}
+.page-container{ border: 1px solid #ccc; min-height: 300px; display: table; margin: 100px auto;
+    background-color: #fff; border-radius: 6px; box-shadow: 0px 0px 10px}
+.logo-stripe{min-height: 50px; border-bottom: 2px solid #CCCCCC; width: auto; margin-bottom: 50px}
+.et-body{padding: 15px 0; font-size: 16px;}
+.p-y-20{padding: 20px 0}
+.p-b-20{padding-bottom: 20px}
+.clear{clear:both}
+.fl{float: left;}
+.et-footer{font-size: 9px; border-top: 2px solid #CCCCCC; padding: 20px 0 0 0; }
+.text-center{text-align: center}
+h2{color:#1388ca; font-weight: normal; font-size: 24px; line-height: 0px; padding: 0;}
+h3{font-weight: normal; font-size: 18px; line-height: 0px; padding: 0;}
+.upload-area{border:2px dotted #1388ca; display: block; min-height: 100px;width: auto; margin: 10PX 0; padding: 5%;
+border-radius: 8px; background-color:rgb(19, 136, 202, 0.1); position: relative}
+.msg-box{border:2px dotted #1388ca; display: block;  min-width: 220px;  padding: 20px;
+    border-radius: 8px;  color:#fff; position: fixed;
+    top: 50%; left: 50%; margin-top: -30px; margin-left: -130px; box-shadow: 2px 2px 8px #000
+}
+.msg-box .img{width: 60px; height: 42px; display: block;}
+.success{background-color:rgb(19, 136, 202, 1)}
+.error{background-color:rgb(241, 87, 33, 1)}
+.remove{position: absolute; top:0; right: 0; top:5px; right: 5px;}

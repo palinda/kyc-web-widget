@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>FR</title>
+
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+  </head>
+
+<body class="text-center">
+<div class="page-container">
+<div class="logo-stripe "><img src="ustocktrade-logo.png" alt="Ustocktrade Logo" /></div>
+<div class="page-content">
+  <div>
+      <kyc-widget id="widget1" mode="2"> </kyc-widget>
+  </div>
+<div class="et-footer">
+        Online trading has inherent risk due to system response, execution price, speed, liquidity, market data and access times that may vary due to market conditions, system performance, market volatility, size and type of order and other factors. An investor should understand these and additional risks before trading. Securities products and services offered to self-directed investors through Ustocktrade Securities, Inc. Member FINRA / SIPC. Ustocktrade, LLC, Ustocktrade LK (Private) Limited and Ustocktrade Securities, Inc. are separate but affiliated companies. Please read important legal disclosures
+</div>
+</div>
+</div>
+
+<script>
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var element = document.getElementsByTagName('kyc-widget')[0];
+    var reference = getParameterByName('referenceID');
+    element.setAttribute("reference", reference);
+
+    element.addEventListener('closed', (event) => {
+      console.log('Closed: ' + event);
+    })
+    var closeCB = () => {
+      console.log('Closed');
+    }
+
+    </script>
+  <script src="./kyc-widget.app.js" type="text/javascript"></script>
+  </body>
+</html>
+

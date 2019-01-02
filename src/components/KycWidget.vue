@@ -1,16 +1,16 @@
 <template>
   <div class="kyc-widget">
-    <div class="card" v-if="mode ==  1 || mode == undefined">
-        <div class="top">
-          <div class="inline round-btn">
-            <span class="iconmoon-phone"></span>
-          </div>
-          <div class="inline title">Instant Verification Via Mobile App</div>
-
-          <div class="details">
-            Enter your mobile number in below to get an SMS with a link to Verification App. This will verify you instantly.
-          </div>
+    <div class="" v-if="mode ==  1 || mode == undefined">
+      <div class="">
+        
+       <h2 class="inline"><span class="iconmoon-phone icon"></span>Instant Verification Via Mobile App</h2>
+        <div class="et-body ">
+          <span class="p-b-20">
+            Enter your mobile number in below to get an SMS with a link to Verification App.<br>This will verify you instantly.
+          </span>
         </div>
+      </div>
+
         <div class="actions" v-if="mode == undefined">
             <div class="phone-input">
               <vue-tel-input class="" v-model="mobileNumber"
@@ -22,19 +22,19 @@
             <div class="error" v-if="error != undefined"> {{error}}</div>
         </div>
         <div class="actions" v-if="mode == 1">
-          <mobile-verify-status v-bind:reference="reference"  @closed="onClose"></mobile-verify-status>
+          <mobile-verify-status v-bind:reference="reference"  @closed="onClose" @goback="mode = undefined"></mobile-verify-status>
         </div>
     </div>
-    <div class="card" v-if="mode == 2 || mode == undefined">
+    <div class="" v-if="mode == 2 || mode == undefined">
 
-      <div class="top">
-        <div class="inline round-btn">
-          <span class="iconmoon-cloud-upload"></span>
-        </div>
-        <div class="inline title">Manual Verification</div>
-
-        <div class="details">
-          Manually upload your passport and selfie image here. We will notify you via an email once it is processed. 
+      <div class="">
+        
+       <h2 class=""><span class="iconmoon-cloud-upload icon" style="font-weight: 600;"></span>Manual Verification</h2>
+        <div class="et-body ">
+          <span class="p-b-20">
+            Manually upload your passport and selfie image here. <br> 
+            We will notify you via an email once it is processed.
+          </span>
         </div>
       </div>
 
@@ -42,7 +42,7 @@
         <button class="inline btn" v-on:click="setMode(2)"><span class="">Process Manually</span></button>
       </div>
       <div class="actions" v-if="mode == 2">
-        <manual-upload v-bind:reference="reference" @closed="onClose"></manual-upload>
+        <manual-upload v-bind:reference="reference" @closed="onClose" @goback="mode = undefined"></manual-upload>
       </div>
     </div>
   </div>
@@ -56,12 +56,12 @@ export default {
   name : 'kyc-widget', 
   props: {
     reference: undefined,
-    closeCallback: Function
+    closeCallback: Function,
+    mode: undefined
   },
   data: function () {
       return {
           mobileNumber: '',
-          mode: undefined,
           error: undefined
       }
   },
@@ -80,9 +80,8 @@ export default {
         return;
       }
 
-      HttpPost(`webapi/send_sms`, {
+      HttpPost(`webapi/send_sms`, this.reference, {
         tel: this.mobileNumber,
-        ref: this.reference
       })
       .then(response => {
         this.setMode(1);
@@ -109,11 +108,9 @@ export default {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; 
-    max-width: 500px;
     background-color: #e9ebee;
     margin: 10px;
     vertical-align: top;
-    font-family: sans-serif;
   }
 
   .inline {
@@ -148,25 +145,30 @@ export default {
     background-color: white;
   }
 
-  .btn {
-    background-color: #686868;
-    color: white;
-    border: 1px solid #686868;
-    padding: 6px 15px;
-    border-radius: 3px;
-  }
-
   .top {
     padding: 20px;
   }
 
   .phone-input {
     padding-bottom: 10px;
+    max-width: 300px;
+    margin: 0px auto;
   }
 
   .error {
     color: #f74646;
     font-size: 15px;
     padding: 15px 0px;
+    background: none;
+  }
+
+  .icon {
+    padding: 12px;
+  }
+
+  .vue-tel-input {
+    border: none;
+    border-bottom: 1px solid #c3c3c3;
+    border-radius: 0px;
   }
 </style>

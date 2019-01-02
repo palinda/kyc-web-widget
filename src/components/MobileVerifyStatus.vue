@@ -1,15 +1,18 @@
 <template>
   <div>
-      <div>
+      <div class="container-status">
         <div v-for="(item, index) in items" v-bind:key="index" class="row">
           <span class="iconmoon-checkmark2 status-icon font-size-21" v-if="index+1 < currentStatus"></span>
           <span class="iconmoon-radio-unchecked status-icon font-size-18" v-if="index+1 > currentStatus"></span>
-          <span class="spinner iconmoon-spinner status-icon font-size-18" v-if="index+1 == currentStatus"></span>
+          <span class="spinner iconmoon-spinner status-icon font-size-18" v-if="index+1 == currentStatus && resp.status != 'failed'"></span>
+          <span class="iconmoon-close status-icon font-size-21" style="color: rgb(241, 87, 33)" v-if="index+1 == currentStatus && resp.status == 'failed'"></span>
           
           &nbsp;&nbsp;&nbsp;<span class="status-text">{{ item.message }}</span>
         </div>
       </div>
+      <div v-if="error != undefined" class="error-text">{{error}}</div>
       <button class="btn" v-on:click="close($event)" v-if="currentStatus > items.length">Done</button>
+      <button class="btn" v-on:click="goBack($event)">Back</button>
   </div>
 </template>
 
@@ -27,11 +30,14 @@ export default {
           mobileNumber: '',
           items: [
             { message: 'Passport Reading' },
+            { message: 'Passport Confirmation' },
             { message: 'Liveness Detection' },
             { message: 'Validating User' },
-            { message: 'Completed' }
+            { message: 'Account Verification' }
           ],
-          currentStatus: 1
+          currentStatus: 1,
+          resp: {},
+          error: undefined
       }
   },
   created: function() {
@@ -42,15 +48,20 @@ export default {
       this.mobileNumber = number;
     },
     getStatus() {
-      HttpPost(`webapi/status`, {
-        ref: this.reference
+      HttpPost(`webapi/status`, this.reference, {
       })
       .then(response => {
-        this.currentStatus = response.data.statusCode != undefined ? response.data.statusCode + 1 : 1;
-
+        this.error = response.data.error;
+        this.resp = response.data;
+        if (this.resp.status == 'success') {
+          this.currentStatus = response.data.index != undefined ? response.data.index + 1 : 1;
+        } else {
+          this.currentStatus = response.data.index != undefined ? response.data.index : 1;
+        }
+        
       })
       .catch(e => {
-        this.error = e;
+        this.error = 'Connection error. Please try again';
       })    
     },
     close(event) {
@@ -58,6 +69,9 @@ export default {
         this.closeCallback(event);
       }
       this.$emit('closed', event);
+    },
+    goBack(event) {
+      this.$emit('goback', event)
     },
     cancelAutoUpdate: function() { clearInterval(this.timer) }
   },
@@ -109,12 +123,5 @@ export default {
 .spinner--steps2 {
 	animation: anim-rotate 1s infinite steps(12);
 }
-.btn {
-    background-color: #686868;
-    color: white;
-    border: 1px solid #686868;
-    padding: 6px 15px;
-    border-radius: 3px;
-    margin: 20px 10px 10px 15px;
-  }
+
 </style>

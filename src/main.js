@@ -4,10 +4,11 @@ import 'vue-tel-input/dist/vue-tel-input.css';
 import './fonts/icomoon/style.css';
 import KycWidget from './components/KycWidget.vue'
 import MobileVerifyStatus from './components/MobileVerifyStatus.vue'
+import StatementWidget from './components/StatementWidget'
 import ManualUpload from './components/ManualUpload.vue'
 
 import vue2Dropzone from 'vue2-dropzone';
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+import 'vue2-dropzone/dist/vue2Dropzone.css';
 
 import './styles.scss';
 import axios from 'axios'
@@ -20,7 +21,9 @@ import VueTelInput from 'vue-tel-input'
 Vue.use(VueTelInput)
 Vue.use(VueCustomElement)
 Vue.use(VueAxios, axios);
-Vue.customElement('kyc-widget',KycWidget)
+
 Vue.customElement('mobile-verify-status',MobileVerifyStatus)
 Vue.customElement('manual-upload',ManualUpload)
+Vue.customElement('kyc-widget',KycWidget)
+Vue.customElement('statement-widget',StatementWidget)
 
